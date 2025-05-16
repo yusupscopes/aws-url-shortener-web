@@ -1,40 +1,31 @@
 "use server";
 
-import { nanoid } from "nanoid";
+import { cookies } from "next/headers";
+import { getOriginalUrl as fetchOriginalUrl } from "./api";
 
-// In a real application, this would connect to a database
-const urlMap = new Map<string, string>();
-
-export async function shortenUrl(originalUrl: string) {
+/**
+ * Server action to get the original URL and handle redirects
+ * This is used by the redirect page to fetch the original URL
+ */
+export async function getOriginalUrl(shortCode: string): Promise<{ originalUrl: string }> {
   try {
-    // Validate URL
-    new URL(originalUrl);
+    // Track the visit in cookies for history (optional)
+    const urlHistory = cookies().get("urlHistory")?.value;
+    if (urlHistory) {
+      try {
+        const history = JSON.parse(urlHistory);
+        // Update history with last accessed time
+        // Implementation details would go here
+      } catch (e) {
+        // Handle parsing error
+        console.error("Error parsing URL history cookie:", e);
+      }
+    }
 
-    // Generate a short code
-    const shortCode = nanoid(7);
-
-    // In a real app, store this in a database
-    urlMap.set(shortCode, originalUrl);
-
-    // Return the shortened URL
-    // In production, this would use your actual domain
-    const shortUrl = `${
-      process.env.NEXT_PUBLIC_APP_URL || "https://liqo.vercel.app"
-    }/s/${shortCode}`;
-
-    return { shortUrl, success: true };
+    // Get the original URL from the API
+    return await fetchOriginalUrl(shortCode);
   } catch (error) {
-    console.error("Error shortening URL:", error);
-    throw new Error("Failed to shorten URL");
+    console.error("Error in getOriginalUrl action:", error);
+    throw error;
   }
-}
-
-export async function getOriginalUrl(shortCode: string) {
-  const originalUrl = urlMap.get(shortCode);
-
-  if (!originalUrl) {
-    throw new Error("URL not found");
-  }
-
-  return { originalUrl, success: true };
 }

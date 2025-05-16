@@ -29,17 +29,17 @@ Create a modern, responsive web interface for the URL shortener API using Next.j
 
 ## Phase 1: Project Setup & Structure
 
-- [ ] **Initialize Project:**
+- [x] **Initialize Project:**
   - Set up Next.js project with Tailwind CSS
   - Configure shadcn/ui components
   - Set up project structure and routing
 
-- [ ] **Create Core Components:**
+- [x] **Create Core Components:**
   - Layout components (Header, Footer, Container)
   - UI components (Button, Input, Card, Toast notifications)
   - Form components for URL shortening
 
-- [ ] **Setup API Integration:**
+- [x] **Setup API Integration:**
   - Create API client for communicating with the backend
   - Define TypeScript interfaces for API responses
   - Implement error handling for API requests
