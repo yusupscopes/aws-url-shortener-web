@@ -19,7 +19,7 @@ export async function shortenUrl(originalUrl: string) {
     // Return the shortened URL
     // In production, this would use your actual domain
     const shortUrl = `${
-      process.env.NEXT_PUBLIC_APP_URL || "https://linkbyte.vercel.app"
+      process.env.NEXT_PUBLIC_APP_URL || "https://liqo.vercel.app"
     }/s/${shortCode}`;
 
     return { shortUrl, success: true };

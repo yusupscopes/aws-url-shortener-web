@@ -8,10 +8,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "LinkByte | Fast URL Shortener",
-    template: "%s | LinkByte",
+    default: "Liqo | Fast URL Shortener",
+    template: "%s | Liqo",
   },
-  description: "Shorten your URLs quickly and easily with LinkByte",
+  description: "Shorten your URLs quickly and easily with Liqo",
 };
 
 export default function RootLayout({

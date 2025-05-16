@@ -6,8 +6,8 @@ import FeatureCard from "@/components/feature-card";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "LinkByte | Fast URL Shortener",
-  description: "Shorten your URLs quickly and easily with LinkByte",
+  title: "Liqo | Fast URL Shortener",
+  description: "Shorten your URLs quickly and easily with Liqo",
 };
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
         <div className="container flex h-16 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center gap-2 font-bold text-xl">
             <LinkIcon className="h-6 w-6" />
-            <span>LinkByte</span>
+            <span>Liqo</span>
           </Link>
           <nav className="hidden md:flex gap-6">
             <Link
@@ -451,11 +451,11 @@ export default function Home() {
               className="flex items-center gap-2 font-bold text-xl"
             >
               <LinkIcon className="h-6 w-6" />
-              <span>LinkByte</span>
+              <span>Liqo</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               Shorten URLs, expand possibilities. © {new Date().getFullYear()}{" "}
-              LinkByte.
+              Liqo.
             </p>
           </div>
           <nav className="grid grid-cols-2 gap-8 sm:grid-cols-3">
